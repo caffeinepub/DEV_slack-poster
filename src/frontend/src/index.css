@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.5rem;
+
+    /* Light — calm warm-neutral base, Slack aubergine primary, iris accent */
+    --background: 0.985 0.004 320;
+    --foreground: 0.18 0.02 305;
+    --card: 1.0 0.0 0;
+    --card-foreground: 0.18 0.02 305;
+    --popover: 1.0 0.0 0;
+    --popover-foreground: 0.18 0.02 305;
+
+    --primary: 0.42 0.18 322; /* Slack aubergine — deep brand purple */
+    --primary-foreground: 0.98 0.005 320;
+
+    --secondary: 0.95 0.012 320;
+    --secondary-foreground: 0.28 0.03 305;
+    --muted: 0.955 0.008 320;
+    --muted-foreground: 0.5 0.015 305;
+
+    --accent: 0.6 0.22 300; /* Slack iris — vivid brand purple */
+    --accent-foreground: 0.98 0.005 300;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 25;
+
+    --success: 0.6 0.16 150;
+    --warning: 0.72 0.15 85;
+
+    --border: 0.9 0.012 320;
+    --input: 0.9 0.012 320;
+    --ring: 0.6 0.22 300;
+
+    --chart-1: 0.42 0.18 322;
+    --chart-2: 0.6 0.22 300;
+    --chart-3: 0.6 0.16 150;
+    --chart-4: 0.72 0.15 85;
+    --chart-5: 0.55 0.22 25;
+
+    --sidebar: 0.97 0.01 320;
+    --sidebar-foreground: 0.18 0.02 305;
+    --sidebar-primary: 0.42 0.18 322;
+    --sidebar-primary-foreground: 0.98 0.005 320;
+    --sidebar-accent: 0.95 0.012 320;
+    --sidebar-accent-foreground: 0.28 0.03 305;
+    --sidebar-border: 0.9 0.012 320;
+    --sidebar-ring: 0.6 0.22 300;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.42 0.18 322),
+      oklch(0.6 0.22 300)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.985 0.004 320),
+      oklch(0.96 0.012 320)
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark — deep aubergine-charcoal, iris brightens as accent */
+    --background: 0.155 0.02 320;
+    --foreground: 0.94 0.012 305;
+    --card: 0.195 0.025 320;
+    --card-foreground: 0.94 0.012 305;
+    --popover: 0.21 0.025 320;
+    --popover-foreground: 0.94 0.012 305;
+
+    --primary: 0.72 0.2 322; /* aubergine lifts to readable purple */
+    --primary-foreground: 0.155 0.02 320;
+
+    --secondary: 0.24 0.03 320;
+    --secondary-foreground: 0.86 0.012 305;
+    --muted: 0.24 0.025 320;
+    --muted-foreground: 0.62 0.015 305;
+
+    --accent: 0.7 0.22 300; /* iris brightened for dark */
+    --accent-foreground: 0.155 0.02 300;
+
+    --destructive: 0.62 0.21 25;
+    --destructive-foreground: 0.95 0.01 25;
+
+    --success: 0.68 0.17 150;
+    --warning: 0.78 0.16 85;
+
+    --border: 0.3 0.025 320;
+    --input: 0.3 0.025 320;
+    --ring: 0.7 0.22 300;
+
+    --chart-1: 0.72 0.2 322;
+    --chart-2: 0.7 0.22 300;
+    --chart-3: 0.68 0.17 150;
+    --chart-4: 0.78 0.16 85;
+    --chart-5: 0.62 0.21 25;
+
+    --sidebar: 0.18 0.022 320;
+    --sidebar-foreground: 0.94 0.012 305;
+    --sidebar-primary: 0.72 0.2 322;
+    --sidebar-primary-foreground: 0.155 0.02 320;
+    --sidebar-accent: 0.24 0.03 320;
+    --sidebar-accent-foreground: 0.86 0.012 305;
+    --sidebar-border: 0.3 0.025 320;
+    --sidebar-ring: 0.7 0.22 300;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.72 0.2 322),
+      oklch(0.7 0.22 300)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.155 0.02 320),
+      oklch(0.19 0.025 320)
+    );
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-subtle {
+    background-image: var(--gradient-subtle);
+  }
+  .text-gradient-primary {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

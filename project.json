@@ -1,0 +1,19 @@
+{
+  "overview": "A signed-in user saves their Slack bearer token once, then posts messages to a Slack channel from a dropdown of their channels.",
+  "features": [
+    "Sign in with Internet Identity",
+    "Save your Slack bearer token once in settings",
+    "Pick a Slack channel from a dropdown fetched from your Slack workspace",
+    "Compose and post a message to the selected channel",
+    "Clear success and error feedback after each post",
+    "Update or clear your saved token anytime"
+  ],
+  "category": "productivity",
+  "tags": [
+    "slack",
+    "messaging",
+    "productivity",
+    "internet-identity"
+  ],
+  "last_updated": "2026-08-19T08:51:56.056Z"
+}
